@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package order;
+
+option go_package = "github.com/uzmaW/go-first/grpc/proto";
+
+service OrderService {
+    rpc CreatOrder (CreateOrderRequest) returns (CreateOrderResponse);
+    rpc GetOrder (GetOrderRequest) returns (GetOrderResponse); 
+}
+
+message CreateOrderRequest {
+  string user_id=1;
+  string product=2;
+  float  price=3;
+}
+
+message CreateOrderResponse {
+   string order_id =1;
+   string user_id =2;
+   string product=3;
+   float price=4;
+}
+
+message GetOrderRequest {
+    string order_id=1;
+}
+
+message GetOrderResponse {
+ string order_id =1;
+   string user_id =2;
+   string product=3;
+   float price=4;
+}
